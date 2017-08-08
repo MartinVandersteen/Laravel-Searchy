@@ -133,7 +133,7 @@ abstract class BaseSearchDriver implements SearchDriverInterface
      *
      * @return array|\Illuminate\Database\Query\Expression
      */
-    public function buildSelectQuery(array $searchFields)
+    private function buildSelectQuery(array $searchFields)
     {
         $query = [];
 
@@ -151,6 +151,16 @@ abstract class BaseSearchDriver implements SearchDriverInterface
         return \DB::raw( implode(' + ', $query) . ' AS ' . $this->relevanceFieldName);
     }
 
+    /**
+      * Returns an instance of the Laravel Fluent Database Query Expression Object with the search
+      * queries applied.
+      *
+      * @return array|\Illuminate\Database\Query\Expression
+      */
+     public function getSelectQuery()
+     {
+       return $this->buildSelectQuery($this->searchFields);
+     }
 
     /**
      * Sanitize column names to prevent collisions with MySQL reserved words
