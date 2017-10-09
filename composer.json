@@ -1,5 +1,5 @@
 {
-    "name": "tom-lingham/searchy",
+    "name": "koalect/searchy",
     "description": "tom-lingham/searchy but with public buildSelectQuery method to allow usage from model",
     "keywords": ["laravel","search","fuzzy"],
     "license": "MIT",
